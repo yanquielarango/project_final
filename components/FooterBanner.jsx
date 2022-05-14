@@ -6,7 +6,7 @@ import { urlFor } from '../lib/client';
 
 const FooterBanner = ({ footerBanner: { discount, largeText1, largeText2, saleTime, smallText, midText, desc, product, buttonText, image } }) => {
     return (        
-        <Stack bg='red.500'  boxShadow='base'  w='100%' h={{base: '500px', md:'400px'}} borderRadius='10px' marginTop={{base:'3.5rem', md:'6rem'}} pos='relative'>
+        <Stack bg='red.500'  boxShadow='base'  w='100%' h={{base: '500px', md:'400px'}} borderRadius='10px' marginTop={{base:'3.5rem', md:'6rem'}} pos='relative' >
           <Stack paddingY={{base:'4rem', md:'5rem', lg:'6rem'}} paddingX='2rem'  color='white' direction={{base:'column', md:'row'}} spacing={{md:'5rem'}} >            
 
               <Stack flex={1} >

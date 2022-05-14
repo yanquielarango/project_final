@@ -5,8 +5,8 @@ import { urlFor } from '../lib/client'
 const HeroBaner = ({heroBanner}) => {
   return (
 
-    <Flex >
-        <Box bg='blackAlpha.200'  boxShadow='base'  w='100%' h='450px' borderRadius='10px' marginTop='20px' pos='relative'>
+    <Flex  >
+        <Box bg='blackAlpha.200'  boxShadow='base'  w='100%' h='450px'  borderRadius='10px' marginTop='20px' pos='relative' >
           <Box paddingY='5rem' paddingX='2rem'  >
             <Text>
               {heroBanner.smallText}

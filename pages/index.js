@@ -4,7 +4,7 @@ import { client } from '../lib/client';
 
 const Home = ({ products, bannerData}) => {
   return (
-    <Stack > 
+    <Stack  justify="center" align="center" marginLeft={{base:'20px', md:'0'}}> 
         <Container maxW='container.xl'  >        
           <HeroBanner heroBanner={ bannerData.length && bannerData[0] }/>
           {console.log(bannerData)}
@@ -13,7 +13,7 @@ const Home = ({ products, bannerData}) => {
               <Text fontSize='xs' textAlign='center' marginBottom='10' color='gray.500'>speaker  there are many variations passages</Text>
             </Box>
 
-            <Flex flexWrap='wrap' gap='5' justify='center'  >              
+            <Flex flexWrap='wrap' gap='5' justify='center'  align='center'  >              
               {products?.map((product) => <Product key={product._id} product={product}/>)}
             </Flex>
 

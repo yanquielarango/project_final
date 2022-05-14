@@ -4,7 +4,7 @@ import { urlFor } from '../lib/client';
 
 const Product = ({ product: { image, name, slug, price } }) => {
   return (
-    <Flex cursor="pointer" _hover = { { transform: "scale(1.1,1.1)", transition: " transform .5s ease " } }>
+    <Flex  cursor="pointer" _hover = { { transform: "scale(1.1,1.1)", transition: " transform .5s ease " } } >
       <Link href={`/product/${slug.current}`}>      
         <Stack >
           <Image 
