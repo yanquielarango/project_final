@@ -26,8 +26,8 @@ const NavBar = () => {
             </Link>
           </Heading>
             <Box  cursor='pointer'>
-              <Avatar w={7} h={7} marginRight='1rem'/>
-              <Icon as={AiOutlineShopping } w={7} h={7} position='relative'/>              
+              <Avatar w={7} h={7} marginRight='.5rem'/>
+              <Icon as={AiOutlineShopping } w={7} h={7} position='relative' marginLeft='1rem'/>              
               <Badge bg='red.400' color='white' position='absolute' borderRadius='50%' w={6} h={6} top="4" right="2" >
               <Text fontSize='sm' fontWeight='bold'  textAlign='center' marginTop='1px'>10</Text>
             </Badge>

@@ -17,73 +17,73 @@ const ProductDetails = ({ product, products }) => {
     return (
         <>
             <Container maxWidth="container.lg">
-            <Stack direction={['column', 'row']} marginTop={20} justify='center' paddingX='1rem' >
-                <Box flex={1} justify='space-between '> 
-                    <Carousel product={product} />
+                <Stack direction={['column', 'row']} marginTop={20} justify='center' paddingX='1rem' >
+                    <Box flex={1} justify='space-between '> 
+                        <Carousel product={product} />
 
-                </Box>
+                    </Box>
 
-                <Stack flex={1} >
-                    <Text color="blue.800" fontSize="2rem" fontWeight="bold">
-                        {name}  
-                    </Text>
-                    <Flex>
-                    {Array(rating).fill(0).map((_, i) => (
-                        <Icon as={AiFillStar} key={i} color='red' />                     
-                            ))}
-                        
-                        
-                    {Array(5 - rating).fill(0).map((_, i) => (
-                        <Icon as={AiOutlineStar} key={i} color='red' />
-                            ))}
-
-                    <Text fontSize='12px' marginLeft='.3rem' marginTop='-2px'  color="blue.800" fontWeight='bold'>
-                        {
-                            numReviews < 4 ? `(${numReviews} view)` : `(${numReviews} views)`
-                            } 
-                    </Text>
-                    </Flex>
-                    <Heading as='h3' size='small' color="blue.800">
-                        Details:
-                    </Heading>
-                    <Text fontSize='sm'>
-                        {details}
-                    </Text>
-                    <Text fontSize='1.8rem' marginTop='1rem' color='red' fontWeight='bold' paddingBottom='1rem'>
-                        {price} zł
-                    </Text>
-                    <Stack direction='row' >
-                        <Text marginTop='.2rem' paddingRight='1rem' color="blue.800" fontWeight="bold">Quantity:</Text>
-                        <Stack direction='row' borderWidth='1px' justify='center' alignItems='center' 
-                        divider={<StackDivider borderColor='gray.200' />}
-                        padding='.3rem'>
-                            <Icon as={AiOutlineMinus} color='red' />
-                            
-                            <Text paddingX='.4rem'>1</Text>
-                            <Icon as={AiOutlinePlus} color='green' />
-                        </Stack>
-                    </Stack>
-                    <Stack direction='row' paddingY='1.4rem' paddingX={{base:'2rem', md:'0'}} spacing={8} >
-                        <Button colorScheme='red' variant='outline'>Add to Cart</Button>
-                        <Button colorScheme='red' variant='solid'>Buy Now</Button>
-                    </Stack>
-                </Stack>            
-
-                </Stack>
-                    <Flex direction='column'>
-                        <Text fontSize={{base:'1.5rem', md:'2.5rem'}} align='center' fontWeight='bold'  color="blue.800" marginBottom='-2rem' marginTop='2rem'>
-                        You May Also Like
+                    <Stack flex={1} >
+                        <Text color="blue.800" fontSize="2rem" fontWeight="bold">
+                            {name}  
                         </Text>
-                        <Stack  width="auto" align="center" justify="center" height="400px"  overflowX='hidden' position="relative">
-                            <Flex gap="15px"   height='auto' width='180%' position="absolute" whiteSpace="nowrap" willChange='transform' paddingX={{base:'10rem'}} >
-                            {products.map(product => (
-                                <Product key={product.id} product={product}  />
-                            ))}
-                            </Flex>
-                        </Stack>
-                    </Flex>
+                        <Flex>
+                        {Array(rating).fill(0).map((_, i) => (
+                            <Icon as={AiFillStar} key={i} color='red' />                     
+                                ))}
+                            
+                            
+                        {Array(5 - rating).fill(0).map((_, i) => (
+                            <Icon as={AiOutlineStar} key={i} color='red' />
+                                ))}
 
-            
+                        <Text fontSize='12px' marginLeft='.3rem' marginTop='-2px'  color="blue.800" fontWeight='bold'>
+                            {
+                                numReviews < 4 ? `(${numReviews} view)` : `(${numReviews} views)`
+                                } 
+                        </Text>
+                        </Flex>
+                        <Heading as='h3' size='small' color="blue.800">
+                            Details:
+                        </Heading>
+                        <Text fontSize='sm'>
+                            {details}
+                        </Text>
+                        <Text fontSize='1.8rem' marginTop='1rem' color='red' fontWeight='bold' paddingBottom='1rem'>
+                            {price} zł
+                        </Text>
+                        <Stack direction='row' >
+                            <Text marginTop='.2rem' paddingRight='1rem' color="blue.800" fontWeight="bold">Quantity:</Text>
+                            <Stack direction='row' borderWidth='1px' justify='center' alignItems='center' 
+                            divider={<StackDivider borderColor='gray.200' />}
+                            padding='.3rem'>
+                                <Icon as={AiOutlineMinus} color='red' />
+                                
+                                <Text paddingX='.4rem'>1</Text>
+                                <Icon as={AiOutlinePlus} color='green' />
+                            </Stack>
+                        </Stack>
+                        <Stack direction='row' paddingY='1.4rem' paddingX={{base:'2rem', md:'0'}} spacing={8} >
+                            <Button colorScheme='red' variant='outline'>Add to Cart</Button>
+                            <Button colorScheme='red' variant='solid'>Buy Now</Button>
+                        </Stack>
+                    </Stack>            
+
+                    </Stack>
+                        <Flex direction='column'>
+                            <Text fontSize={{base:'1.5rem', md:'2.5rem'}} align='center' fontWeight='bold'  color="blue.800" marginBottom='-2rem' marginTop='2rem'>
+                            You May Also Like
+                            </Text>
+                            <Stack  width="auto" align="center" justify="center" height="400px"  overflowX='hidden' position="relative">
+                                <Flex gap="15px"   height='auto' width='180%' position="absolute" whiteSpace="nowrap" willChange='transform' paddingX={{base:'10rem'}} >
+                                {products.map(product => (
+                                    <Product key={product.id} product={product}  />
+                                ))}
+                                </Flex>
+                            </Stack>
+                        </Flex>
+
+                
             </Container>
 
         
