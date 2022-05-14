@@ -1,6 +1,6 @@
 import { Flex, Text, Icon, Stack, Heading, Button, StackDivider, Container, Box} from '@chakra-ui/react'
 import { client, urlFor } from '../../lib/client'
-
+import React, {useState} from 'react'
 import { AiOutlineMinus, AiOutlinePlus, AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import Product from '../../components/Product';
 import Carousel from '../../components/Carousel';
@@ -9,8 +9,31 @@ import Carousel from '../../components/Carousel';
 
 const ProductDetails = ({ product, products }) => {
     const {  name, details, price, rating, numReviews } = product
+    const [quantity, setQuantity] = useState(1);
+    const [carritos, setCarrito] = useState([]);
+    
 
-    console.log(product)
+    const handleSuma = () => {
+        setQuantity(quantity + 1);
+    }
+
+    const handleResta = () => {
+        if (quantity > 1) {
+            setQuantity(quantity - 1);
+        }
+
+    }
+
+    const handleAddToCart = () => {
+        const carrito = {
+            product: product,
+            quantity: quantity
+        }    
+        setCarrito([...carritos, carrito]);
+        console.log(carrito);
+
+    }
+
 
     
 
@@ -57,14 +80,14 @@ const ProductDetails = ({ product, products }) => {
                             <Stack direction='row' borderWidth='1px' justify='center' alignItems='center' 
                             divider={<StackDivider borderColor='gray.200' />}
                             padding='.3rem'>
-                                <Icon as={AiOutlineMinus} color='red' />
+                                <Icon as={AiOutlineMinus} color='red' onClick={handleResta} />
                                 
-                                <Text paddingX='.4rem'>1</Text>
-                                <Icon as={AiOutlinePlus} color='green' />
+                                <Text paddingX='.4rem'>{quantity}</Text>
+                                <Icon as={AiOutlinePlus} color='green'  onClick={handleSuma} />
                             </Stack>
                         </Stack>
                         <Stack direction='row' paddingY='1.4rem' paddingX={{base:'2rem', md:'0'}} spacing={8} >
-                            <Button colorScheme='red' variant='outline'>Add to Cart</Button>
+                            <Button colorScheme='red' variant='outline' onClick={handleAddToCart} >Add to Cart</Button>
                             <Button colorScheme='red' variant='solid'>Buy Now</Button>
                         </Stack>
                     </Stack>            
