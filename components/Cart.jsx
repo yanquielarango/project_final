@@ -56,7 +56,8 @@ const SliderCart = () => {
         ref={btnRef}
         onClick={onOpen}
       />
-      <Badge
+      {cartItems.length > 0 && (
+        <Badge
         bg="red.400"
         color="white"
         position="absolute"
@@ -75,6 +76,7 @@ const SliderCart = () => {
           {totalQuantity}
         </Text>
       </Badge>
+      )}
       <Drawer
         isOpen={isOpen}
         placement="right"
