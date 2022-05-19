@@ -29,7 +29,7 @@ const NavBar = () => {
             <Text
               bgGradient="linear(to-r, gray.400, red.700)"
               bgClip="text"
-              fontSize="4xl"
+              fontSize={{base:'2xl', md:'4xl'}}
               fontWeight="extrabold"
               cursor="pointer"
             >

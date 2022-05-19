@@ -25,10 +25,10 @@ const HeroBaner = ({heroBanner}) => {
               </Link>
             
             </Stack>
-            <Stack direction='column' alignItems='center' justifyContent='center' position='absolute' right={{md:'30', '2xl':'40'}} bottom={{md:'10'}}>
+            <Stack direction='column'  position='absolute' right={{base:'0',md:'30', '2xl':'40'}} bottom={{md:'20px'}}>
                 <Spacer/>
                 <Heading as='h5' fontSize='1rem' color='blue.700' paddingX='5'   marginTop='2' alignSelf='end' >Description</Heading>
-                <Text fontSize='12px' color='gray.500'  paddingX='5'  textAlign='justify'  w={{base: '300px', md: '250'}} >{heroBanner.desc}</Text>
+                <Text fontSize='12px' color='gray.500'  paddingX='4'  textAlign='justify'  w={{base: '290px', md: '250'}} >{heroBanner.desc}</Text>
 
             </Stack>
             
