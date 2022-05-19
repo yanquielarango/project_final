@@ -1,46 +1,51 @@
-import { Container, Stack, Box,  Divider,  Heading, Icon, Text, Badge, Avatar} from '@chakra-ui/react';
-import Link from 'next/link';
-import { AiOutlineShopping } from 'react-icons/ai';
-import { FaUserCircle} from 'react-icons/fa';
+import {
+  Container,
+  Stack,
+  Box,
+  Divider,
+  Heading,
+  Icon,
+  Text,
+  Badge,
+  Avatar,
+} from "@chakra-ui/react";
+import Link from "next/link";
+import { FaUserCircle } from "react-icons/fa";
+import SliderCart from "./Cart";
 
-
-import DrawerExample from './Cart';
+import DrawerExample from "./Cart";
 
 const NavBar = () => {
-
   return (
-    <Container  maxW='container.xl' >
-      
-        <Stack alignItems='center' direction='row' justifyContent='space-between' paddingY={4}>
-          <Heading as='h1' size='xl' color='teal.600'>
-            <Link href='/'>
-              <Text
-                bgGradient='linear(to-r, gray.400, red.700)'
-                bgClip='text'
-                fontSize='4xl'
-                fontWeight='extrabold'
-                cursor='pointer'
-              >
-                Ecommerce
-              </Text>
-            </Link>
-          </Heading>
-            <Box  cursor='pointer' display='flex' justify='center' align='center'>
-              <Avatar w={7} h={7} />
-              <Icon as={AiOutlineShopping } w={7} h={7} position='relative' marginLeft='1rem'/>              
-              <Badge bg='red.400' color='white' position='absolute' borderRadius='50%' w={6} h={6} top="4" right={{base:'2', '2xl':'8.2%'}} >
-              <Text fontSize='sm' fontWeight='bold'  textAlign='center' marginTop='1px'>10</Text>
-            </Badge>
-            </Box>
-        </Stack>
-        
-        <Divider /> 
+    <Container maxW="container.xl">
+      <Stack
+        alignItems="center"
+        direction="row"
+        justifyContent="space-between"
+        paddingY={4}
+      >
+        <Heading as="h1" size="xl" color="teal.600">
+          <Link href="/">
+            <Text
+              bgGradient="linear(to-r, gray.400, red.700)"
+              bgClip="text"
+              fontSize="4xl"
+              fontWeight="extrabold"
+              cursor="pointer"
+            >
+              Ecommerce
+            </Text>
+          </Link>
+        </Heading>
+        <Box cursor="pointer" display="flex" justify="center" align="center">
+          <Avatar w={8} h={8} />
+          <SliderCart/>
+        </Box>
+      </Stack>
 
-      
+      <Divider />
     </Container>
+  );
+};
 
- 
-  )
-}
-
-export default NavBar
+export default NavBar;
