@@ -14,7 +14,8 @@ import {
   Text,
   Stack,
   Flex,
-  Image
+  Image,
+  StackDivider
 } from "@chakra-ui/react";
 
 import {
@@ -28,8 +29,7 @@ import { TiDeleteOutline } from "react-icons/ti";
 
 import { BsCart2 } from "react-icons/bs";
 
-import { urlFor } from '../lib/client';
-
+import { urlFor } from "../lib/client";
 
 import toast from "react-hot-toast";
 
@@ -39,11 +39,11 @@ const SliderCart = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = forwardRef;
 
-  const { totalQuantity, totalPrice, cartItems } = useStateContext();
+  const { totalQuantity, totalPrice, cartItems, decQty, incQty, qty } = useStateContext();
 
   const closeCart = () => {
-    onClose(); 
-  }
+    onClose();
+  };
 
   return (
     <>
@@ -58,24 +58,24 @@ const SliderCart = () => {
       />
       {cartItems.length > 0 && (
         <Badge
-        bg="red.400"
-        color="white"
-        position="absolute"
-        borderRadius="50%"
-        w={6}
-        h={6}
-        top="4"
-        right={{ base: "2", "2xl": "8.2%" }}
-      >
-        <Text
-          fontSize="sm"
-          fontWeight="bold"
-          textAlign="center"
-          marginTop="1px"
+          bg="red.400"
+          color="white"
+          position="absolute"
+          borderRadius="50%"
+          w={6}
+          h={6}
+          top={{ base: "2", md: "3" }}
+          right={{ base: "2", "2xl": "8.2%" }}
         >
-          {totalQuantity}
-        </Text>
-      </Badge>
+          <Text
+            fontSize="sm"
+            fontWeight="bold"
+            textAlign="center"
+            marginTop="1px"
+          >
+            {totalQuantity}
+          </Text>
+        </Badge>
       )}
       <Drawer
         isOpen={isOpen}
@@ -87,13 +87,19 @@ const SliderCart = () => {
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
-          <DrawerHeader >
-            <Stack direction="row" spacing={3} align="center" cursor='pointer'  onClick={closeCart}>
+          <DrawerHeader>
+            <Stack
+              direction="row"
+              spacing={3}
+              align="center"
+              cursor="pointer"
+              onClick={closeCart}
+            >
               <AiOutlineLeft />
               <Text fontSize="md" fontWeight="bold">
-                Your  Cart
+                Your Cart
               </Text>
-              <Text fontSize="sm" fontWeight="bold" color='red.800'>
+              <Text fontSize="sm" fontWeight="bold" color="red.800">
                 ({totalQuantity} items)
               </Text>
             </Stack>
@@ -101,33 +107,51 @@ const SliderCart = () => {
 
           <DrawerBody>
             {cartItems.length < 1 ? (
-              <Flex paddingY='5rem' direction="column"  justify='center' align="center">
-              <Image src='/assets/shop.webp' 
-              alt='empty cart'
-              objectFit='cover'
-              boxSize='220px'              
-              />
-              <Text fontSize='1.2rem' fontWeight='semibold' color='red.800'>
-                Your shopping bag  is empty
-              </Text>
-            </Flex>
+              <Flex
+                paddingY="5rem"
+                direction="column"
+                justify="center"
+                align="center"
+              >
+                <Image
+                  src="/assets/shop.webp"
+                  alt="empty cart"
+                  objectFit="cover"
+                  boxSize="220px"
+                />
+                <Text fontSize="1.2rem" fontWeight="semibold" color="red.800">
+                  Your shopping bag is empty
+                </Text>
+              </Flex>
             ) : (
               <Stack direction="column" spacing={4}>
                 {cartItems.map((item) => (
-                  <Stack>
-                    <Stack direction="row" spacing={4}  align="center">
-                      <Image  src={urlFor(item.image[0])} boxSize='100px' objectFit='cover'/>
-                      <Text> {item.name}</Text>
-                      <Text> {item.price}</Text>
+                  <Stack  direction='row' >
+                      <Image
+                        src={urlFor(item.image[0])}
+                        boxSize="100px"
+                        objectFit="cover"
+                        bg="blackAlpha.100"
+                        borderRadius="10px"
+                      />
+                      
+                    <Stack direction='row' spacing={20} >     
+                      <Text color='blue.800' fontWeight="bold"> {item.name}</Text>           
+                      <Text color='blue.800' fontWeight="bold"> {item.price} zl</Text>
                     </Stack>
+                  <Stack>
+                    
+                  </Stack>        
                   </Stack>
+                  
+                  
                 ))}
+                
               </Stack>
+              
+              
             )}
           </DrawerBody>
-
-          
-        
 
           <DrawerFooter></DrawerFooter>
         </DrawerContent>

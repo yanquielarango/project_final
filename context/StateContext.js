@@ -4,25 +4,39 @@ import { toast } from 'react-hot-toast';
 const Context = createContext();
 
 export const StateContext = ({ children }) => {
-    const [showCart, setShowCart] = useState(false);
     const [cartItems, setCartItems] = useState([]);
     const [totalPrice, setTotalPrice] = useState(0);
     const [totalQuantity, setTotalQuantity] = useState(0);
     const [qty, setQty] = useState(1);
 
-    const addToCart = (product, quantity) => {
-        const item = cartItems.find(item => item.id === product.id);
-        if (item) {
-            item.quantity += quantity;
-            item.totalPrice = item.quantity * item.price;
-        } else {
-            const newItem = { ...product, quantity, totalPrice: quantity * product.price };
-            setCartItems([...cartItems, newItem]);
-        }
-        setTotalPrice(totalPrice + (quantity * product.price));
-        setTotalQuantity(totalQuantity + quantity);
-        toast.success(`${product.name} added to cart!`);
-    }
+    const addToCart =  (product, quantity) => {
+        const checkProductInCart = cartItems.find((item) => item._id === product._id);
+        
+        setTotalPrice((prevTotalPrice) => prevTotalPrice + product.price * quantity);
+        setTotalQuantity((prevTotalQuantity) => prevTotalQuantity + quantity);
+        
+        if(checkProductInCart) {
+            const updatedCartItems = cartItems.map((cartProduct) => {
+                if(cartProduct._id === product._id) return {
+                ...cartProduct,
+                quantity: cartProduct.quantity + quantity
+                }
+            })
+        
+            setCartItems(updatedCartItems);
+            } else {
+            product.quantity = quantity;
+            
+            setCartItems([...cartItems, { ...product }]);
+            }
+        
+            toast.success(`${qty} ${product.name} added to the cart.`);
+        } 
+
+
+
+
+
 
     const incQty = () => {
         setQty((prevQty) => prevQty + 1);
@@ -37,14 +51,17 @@ export const StateContext = ({ children }) => {
 
     return (
         <Context.Provider value={{
-            showCart,
             cartItems,
             totalPrice,
             totalQuantity,
             qty,
             incQty,
             decQty,
-            addToCart
+            addToCart,
+            setCartItems,
+            setTotalQuantity,
+            setTotalPrice
+
         }}>
             {children}
         </Context.Provider>
