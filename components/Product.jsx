@@ -1,5 +1,9 @@
 import Link from "next/link";
+
+/* Importing the components from the chakra-ui library. */
 import { Flex, Stack, Text, Image } from "@chakra-ui/react";
+
+/* A helper function that is used to generate the correct image url. */
 import { urlFor } from "../lib/client";
 
 const Product = ({ product: { image, name, slug, price } }) => {

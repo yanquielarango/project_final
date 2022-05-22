@@ -1041,7 +1041,7 @@
   "resolved" "https://registry.npmjs.org/@sanity/timed-out/-/timed-out-4.0.2.tgz"
   "version" "4.0.2"
 
-"@stripe/stripe-js@^1.25.0":
+"@stripe/stripe-js@^1.29.0":
   "integrity" "sha512-OsUxk0VLlum8E2d6onlEdKuQcvLMs7qTrOXCnl/BGV3fAm65qr6h3e1IZ5AX4lgUlPRrzRcddSOA5DvkKKYLvg=="
   "resolved" "https://registry.npmjs.org/@stripe/stripe-js/-/stripe-js-1.29.0.tgz"
   "version" "1.29.0"
@@ -2482,7 +2482,7 @@
   dependencies:
     "@sanity/image-url" "^0.140.22"
 
-"next@^11.0.0 || ^12.0.0", "next@>=10.2.0", "next@12.1.5":
+"next@^11.0.0 || ^12.0.0", "next@^12.1.5", "next@>=10.2.0":
   "integrity" "sha512-YGHDpyfgCfnT5GZObsKepmRnne7Kzp7nGrac07dikhutWQug7hHg85/+sPJ4ZW5Q2pDkb+n0FnmLkmd44htIJQ=="
   "resolved" "https://registry.npmjs.org/next/-/next-12.1.5.tgz"
   "version" "12.1.5"
@@ -3043,10 +3043,10 @@
   "resolved" "https://registry.npmjs.org/strip-json-comments/-/strip-json-comments-3.1.1.tgz"
   "version" "3.1.1"
 
-"stripe@^8.209.0":
-  "integrity" "sha512-leQj9h2T4jhEz4Ta4irNTNgErPmXfF9h4nRYblTTrkTqldOmEWZQZIgXkNp1u6/UbOmMDRvxgh57UHyxwwfw0Q=="
-  "resolved" "https://registry.npmjs.org/stripe/-/stripe-8.219.0.tgz"
-  "version" "8.219.0"
+"stripe@^8.222.0":
+  "integrity" "sha512-hrA79fjmN2Eb6K3kxkDzU4ODeVGGjXQsuVaAPSUro6I9MM3X+BvIsVqdphm3BXWfimAGFvUqWtPtHy25mICY1w=="
+  "resolved" "https://registry.npmjs.org/stripe/-/stripe-8.222.0.tgz"
+  "version" "8.222.0"
   dependencies:
     "@types/node" ">=8.1.0"
     "qs" "^6.10.3"

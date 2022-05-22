@@ -1,3 +1,4 @@
+/* Importing the components from the Chakra UI library. */
 import {
   Flex,
   Text,
@@ -9,24 +10,40 @@ import {
   Container,
   Box,
 } from "@chakra-ui/react";
+
+
+/* Importing the client and urlFor functions from the client.js file. */
 import { client, urlFor } from "../../lib/client";
+
+
+/* Importing the icons from the react-icons library. */
 import {
   AiOutlineMinus,
   AiOutlinePlus,
   AiFillStar,
   AiOutlineStar,
 } from "react-icons/ai";
+
+/* Importing the Product and Carousel components from the components folder. */
 import Product from "../../components/Product";
 import Carousel from "../../components/Carousel";
 
+/* Importing the useStateContext hook from the StateContext.js file. */
 import { useStateContext } from "../../context/StateContext";
 
+
+/* Importing the styles from the Carousel.module.css file. */
 import styles from "../../style/Carousel.module.css";
 
+
+
 const ProductDetails = ({ product, products }) => {
+  /* Destructuring the product object and the useStateContext object. */
   const { name, details, price, rating, numReviews } = product;
 
-  const { qty, incQty, decQty, addToCart } = useStateContext();
+  const { qty, incQty, decQty, onAdd } = useStateContext();
+
+
 
   return (
     <>
@@ -100,10 +117,10 @@ const ProductDetails = ({ product, products }) => {
                 divider={<StackDivider borderColor="gray.200" />}
                 padding=".3rem"
               >
-                <Icon as={AiOutlineMinus} color="red" onClick={decQty} />
+                <Icon as={AiOutlineMinus} color="red" onClick={decQty}  cursor='pointer'/>
 
                 <Text paddingX=".4rem">{qty}</Text>
-                <Icon as={AiOutlinePlus} color="green" onClick={incQty} />
+                <Icon as={AiOutlinePlus} color="green" onClick={incQty} cursor='pointer' />
               </Stack>
             </Stack>
             <Stack
@@ -115,7 +132,7 @@ const ProductDetails = ({ product, products }) => {
               <Button
                 colorScheme="red"
                 variant="outline"
-                onClick={() => addToCart(product, qty)}
+                onClick={() => onAdd(product, qty)}
               >
                 Add to Cart
               </Button>

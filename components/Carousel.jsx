@@ -1,5 +1,9 @@
 import React, {useState} from 'react'
+
+/* Importing the Stack and Image components from the Chakra UI library. */
 import { Stack, Image} from '@chakra-ui/react'
+
+/* Importing the client and urlFor from the client.js file. */
 import { client, urlFor } from '../lib/client'
 
 const Carousel = ({product}) => {

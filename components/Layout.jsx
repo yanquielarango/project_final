@@ -1,4 +1,6 @@
 import Head from 'next/head';
+
+/* Importing the Footer component from the Footer.js file. */
 import Footer from './Footer';
 
 

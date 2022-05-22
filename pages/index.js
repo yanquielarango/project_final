@@ -1,5 +1,10 @@
+/* Importing the components from the chakra-ui library. */
 import { Stack, Container, Box, Heading, Text, Flex } from '@chakra-ui/react'
+
+/* Importing the components from the components folder. */
 import { Product, FooterBanner, HeroBanner} from '../components';
+
+/* Importing the client from the client.js file. */
 import { client } from '../lib/client';
 
 const Home = ({ products, bannerData}) => {
