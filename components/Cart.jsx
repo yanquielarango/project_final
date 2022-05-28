@@ -39,7 +39,7 @@ import { useStateContext } from "../context/StateContext";
 
 import getStripe from "../lib/getStripe";
 
-import { useUser} from '@auth0/nextjs-auth0';
+// import { useUser} from '@auth0/nextjs-auth0';
 
 const SliderCart = () => {
   /* A hook that is used to open and close the drawer. */
