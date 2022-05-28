@@ -95,7 +95,7 @@ const FooterBanner = ({
                 cursor="pointer"
                 marginTop={{ base: "2", md: "10", lg: "6" }}
               >
-                {buttonText}{" "}
+                {buttonText}
               </Button>
             </Link>
           </Stack>
