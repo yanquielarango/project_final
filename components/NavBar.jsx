@@ -16,7 +16,7 @@ import Link from "next/link";
 
 /* Importing the Cart component from the Cart.js file. */
 import SliderCart from "./Cart";
-import DrawerExample from "./Cart";
+
 
 const NavBar = () => {
   return (
@@ -36,12 +36,12 @@ const NavBar = () => {
               fontWeight="extrabold"
               cursor="pointer"
             >
-              Ecommerce
+              HeadPhones
             </Text>
           </Link>
         </Heading>
         <Box cursor="pointer" display="flex" justify="center" align="center">
-          <Avatar w={8} h={8} />
+          {/* <Avatar w={8} h={8} /> */}
           <SliderCart/>
         </Box>
       </Stack>

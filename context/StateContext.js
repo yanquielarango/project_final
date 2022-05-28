@@ -4,6 +4,13 @@ import { toast } from 'react-hot-toast';
 const Context = createContext();
 
 export const StateContext = ({ children }) => {
+
+  // let cartItem = JSON.parse(localStorage.getItem('cart'));
+  // if(!cartItem) {
+  //   cartItem = [];
+  // }
+
+
   const [cartItems, setCartItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalQuantities, setTotalQuantities] = useState(0);
@@ -11,6 +18,15 @@ export const StateContext = ({ children }) => {
 
   let foundProduct;
   let index;
+
+
+  // useEffect(() => {
+  //   if(cartItem) {
+  //     localStorage.setItem('cart', JSON.stringify(cartItems));
+  //   } else {
+  //    localStorage.setItem('cart', JSON.stringify([]));
+  //   }
+  // }, [cartItem]);
 
   const onAdd = (product, quantity) => {
     const checkProductInCart = cartItems.find((item) => item._id === product._id);

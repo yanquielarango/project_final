@@ -39,6 +39,7 @@ import { useStateContext } from "../context/StateContext";
 
 import getStripe from "../lib/getStripe";
 
+import { useUser} from '@auth0/nextjs-auth0';
 
 const SliderCart = () => {
   /* A hook that is used to open and close the drawer. */
@@ -54,29 +55,33 @@ const SliderCart = () => {
     onRemove,
   } = useStateContext();
 
+  // const { user } = useUser();
+
   const closeCart = () => {
     onClose();
   };
 
   const handleCheckout = async () => {
-    const stripe = await getStripe()
 
-    const response = await fetch('/api/stripe', {
-      method: 'POST',
+  
+    const stripe = await getStripe();
+
+    const response = await fetch("/api/stripe", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(cartItems),
     });
 
-    if(response.statusCode === 500) return;
+    if (response.statusCode === 500) return;
 
     const data = await response.json();
 
-    toast.loading('Redirecting...')
+    toast.loading("Redirecting...");
 
-    stripe.redirectToCheckout({ sessionId: data.id})
-  }
+    stripe.redirectToCheckout({ sessionId: data.id });
+  };
 
   return (
     <>
@@ -171,10 +176,10 @@ const SliderCart = () => {
                     />
                     <Stack>
                       <Stack
-                        direction={{base:'column', md:'row'}}
+                        direction={{ base: "column", md: "row" }}
                         width={{ base: "210px", md: "240px" }}
-                        justify={{base:'flex-start', md:'space-between'}}
-                        align={{base:'flex-start', md:'space-between'}}
+                        justify={{ base: "flex-start", md: "space-between" }}
+                        align={{ base: "flex-start", md: "space-between" }}
                       >
                         <Text
                           color="blue.800"

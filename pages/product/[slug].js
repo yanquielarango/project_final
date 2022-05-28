@@ -9,6 +9,7 @@ import {
   StackDivider,
   Container,
   Box,
+  useDisclosure
 } from "@chakra-ui/react";
 
 
@@ -43,6 +44,13 @@ const ProductDetails = ({ product, products }) => {
 
   const { qty, incQty, decQty, onAdd } = useStateContext();
 
+  const { isOpen, onOpen } = useDisclosure();
+
+
+  const handleBuyNow = () => {
+    onAdd(product, qty);
+    
+  }
 
 
   return (
@@ -136,7 +144,7 @@ const ProductDetails = ({ product, products }) => {
               >
                 Add to Cart
               </Button>
-              <Button colorScheme="red" variant="solid">
+              <Button colorScheme="red" variant="solid" onClick={handleBuyNow}>
                 Buy Now
               </Button>
             </Stack>

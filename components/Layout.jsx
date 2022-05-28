@@ -2,7 +2,7 @@ import Head from 'next/head';
 
 /* Importing the Footer component from the Footer.js file. */
 import Footer from './Footer';
-
+import {Box} from '@chakra-ui/react'
 
 
 import Navbar from './NavBar';
@@ -10,7 +10,7 @@ import Navbar from './NavBar';
 
 const Layout = ({children}) => {
   return (
-    <div className="p-3">
+    <Box>
       <Head>
         <title>Ecommerce Store</title>
       </Head>
@@ -20,10 +20,10 @@ const Layout = ({children}) => {
       <main>
         {children}
       </main>
-      <footer>
+      <footer >
         <Footer/>
       </footer>
-    </div>
+    </Box>
   )
 }
 
